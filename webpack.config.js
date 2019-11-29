@@ -22,6 +22,6 @@ module.exports = {
         filename: "app.js"
     },
     devServer: {
-        contentBase: "./dist"
+        contentBase: "./docs"
     }
 };
