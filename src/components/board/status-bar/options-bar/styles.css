@@ -1,0 +1,14 @@
+.options-bar {
+    display: flex;
+    flex-direction: row;
+
+    margin: .5em;
+}
+
+input[type=number] {
+    width: 55px;
+}
+
+.confirm-button {
+    margin-left: 1em;
+}

@@ -1,0 +1,27 @@
+.complete-board {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#board {
+    background-color: white;
+    display: flex;
+
+    width: fit-content;
+
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.no-pointer {
+    pointer-events: none;
+}
