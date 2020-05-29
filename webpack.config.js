@@ -22,6 +22,7 @@ module.exports = {
         filename: "app.js"
     },
     devServer: {
-        contentBase: "./docs"
+        contentBase: "./docs",
+        host: "0.0.0.0"
     }
 };

@@ -23,8 +23,25 @@ export default function (props) {
         }
     }
 
+    let color = '#000000';
+    /*
+    if  (revealed && adjacentMines > 0 && !mine) {
+        switch (adjacentMines) {
+            case 1: color = '#54ff71'; break;
+            case 2: color = '#ffabeb'; break;
+            case 3: color = '#1cb3ff'; break;
+            case 4: color = '#ff6836'; break;
+            case 5: color = '#731111'; break;
+            case 6: color = '#000000'; break;
+            case 7: color = '#000000'; break;
+            case 8: color = '#000000'; break;
+        }
+    }
+    */
+
     return (
         <div
+        style={ { color: color } }
         className={ `cell${ revealed ? ' revealed' : '' }${ marked ? ' marked' : '' }${ gameOver && mine && !marked ? ' mine' : '' }` }
         { ...otherProps }
         >

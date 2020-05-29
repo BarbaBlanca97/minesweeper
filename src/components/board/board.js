@@ -12,6 +12,13 @@ class Board extends React.Component {
     mines       = 40;
     boardEngine;
 
+    PointerRegister(cell, time) {
+        this.cell = cell;
+        this.time = time;
+    }
+
+    pointersRegister = new Map();
+
     constructor(props) {
         super(props);
 
@@ -57,16 +64,14 @@ class Board extends React.Component {
         
         alert('ganaste');
     }
+
+    handleClick = (row, col) => {
+        if (this.boardEngine.reveal(row, col))
+            this.setState({ board: [ ...this.boardEngine.getBoard() ], minesLeft: this.mines - this.boardEngine.getMarked() });
+    }
     
-    handleCellClick = (event, row, col) => {
-        let hasChange = false;
-
-        if (event.button === 0)
-            hasChange = this.boardEngine.reveal(row, col);
-        else if (event.button === 2) 
-            hasChange = this.boardEngine.mark(row, col);
-
-        if (hasChange)
+    handleRightClick = (row, col) => {
+        if (this.boardEngine.mark(row, col))
             this.setState({ board: [ ...this.boardEngine.getBoard() ], minesLeft: this.mines - this.boardEngine.getMarked() });
     }
 
@@ -102,7 +107,6 @@ class Board extends React.Component {
         const cols = [];
 
         for (let i = 0; i < this.columns; i++) {
-
             const colCells = [];
 
             for (let j = 0; j < this.rows; j++) {
@@ -111,8 +115,8 @@ class Board extends React.Component {
                 colCells.push(
                     <Cell
                         key={ `cell-${j}-${i}` }
-                        onClick={ event => this.handleCellClick(event, j, i) }
-                        onContextMenu={ event => { this.handleCellClick(event, j, i); event.preventDefault(); }}
+                        onClick={ () => this.handleClick(j, i) }
+                        onContextMenu={ () => { this.handleRightClick(j, i); event.preventDefault(); }}
                         revealed={ revealMines ? cell.mine || cell.revealed : cell.revealed }
                         marked={ cell.marked }
                         adjacentMines={ cell.adjacents }
