@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     mode: "development",
     devtool: "eval-source-map",
@@ -9,7 +11,7 @@ module.exports = {
                 use: [ "babel-loader" ]
             },
             {
-                test: /\.css$/i,
+                test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
             },
             {
@@ -19,6 +21,7 @@ module.exports = {
         ]
     },
     output: {
+        path: path.resolve(__dirname, 'docs'),
         filename: "app.js"
     },
     devServer: {
