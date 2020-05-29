@@ -12,13 +12,6 @@ class Board extends React.Component {
     mines       = 40;
     boardEngine;
 
-    PointerRegister(cell, time) {
-        this.cell = cell;
-        this.time = time;
-    }
-
-    pointersRegister = new Map();
-
     constructor(props) {
         super(props);
 
@@ -92,11 +85,13 @@ class Board extends React.Component {
                 onRestart={ this.handleRestart }
                 onOptionsChanged={ this.handleOptionsChanged }
                 />
-                <div 
-                id="board"
-                className={`${ this.state.gameOver ? 'no-pointer' : '' }`}
-                >
-                    { this.drawBoard(this.state.gameOver) }
+                <div id="board-container">
+                    <div 
+                    id="board"
+                    className={`${ this.state.gameOver ? 'no-pointer' : '' }`}
+                    >
+                        { this.drawBoard(this.state.gameOver) }
+                    </div>
                 </div>
             </div>
         );

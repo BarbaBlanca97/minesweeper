@@ -5,16 +5,22 @@
     align-items: center;
 }
 
+#board-container {
+    overflow: auto;
+    max-width: 95vw;
+}
+
 #board {
     background-color: white;
     display: flex;
-
-    width: fit-content;
 
     border-bottom: 1px solid black;
     border-right: 1px solid black;
 
     flex-direction: row;
+
+    width: fit-content;
+    margin: 1px;
 }
 
 .col {
