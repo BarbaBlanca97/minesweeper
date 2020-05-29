@@ -21,6 +21,11 @@
 
     width: fit-content;
     margin: 1px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;     
+    -ms-user-select: none;   
+    user-select: none; 
 }
 
 .col {
